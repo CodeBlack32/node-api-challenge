@@ -40,13 +40,24 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+This week I learned about customer middleware and basically being able to deploy an entire application through back-end
+
 - [ ] Describe Middleware?
+
+Middleware is basically a task that is excuted during the process of an application starting, or tasks that run only when specific actions are started and/or executed.
+Middleware can also be used to start or to perform other middleware
 
 - [ ] Describe a Resource?
 
+Resources are things the express app uses for it's functionality. These resources would be things like: API,Middleware, Router.... etc.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+Status codes are things that can be sent to determine if the request was correct
+
 - [ ] How can we partition our application into sub-applications?
+
+You can set certain parts of the app to run using different ports. So as the specic port is used, certain aspects of the app will run.
 
 ## Minimum Viable Product
 
