@@ -13,11 +13,16 @@ const projects = [
 
 module.exports = {
   get,
+  getById,
   insert,
   update,
   remove,
   getProjectActions,
 };
+
+function getById(id) {
+  return db("projects").where({ id: Number(id) });
+}
 
 function get(id) {
   let query = db("projects as p");

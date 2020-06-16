@@ -17,7 +17,7 @@ projectRouter.get("/:id", (req, res) => {
   const { id } = req.params;
   const project = req.body;
 
-  db.get(id, project)
+  db.getById(id, project)
     .then((isProject) => {
       if (isProject) {
         res.status(200).json({ isProject });
