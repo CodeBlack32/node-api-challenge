@@ -17,10 +17,10 @@ projectRouter.get("/:id", (req, res) => {
   const { id } = req.params;
   const project = req.body;
 
-  db.get(id)
+  db.get(id, project)
     .then((userId) => {
       if (userId) {
-        res.status(200).json({ project });
+        res.status(200).json({ userId });
       } else {
         res.status(404).json({ success: false, message: "id invalid" });
       }
@@ -33,7 +33,7 @@ projectRouter.get("/:id", (req, res) => {
 projectRouter.get("/:id/project", (req, res, next) => {
   const projectId = req.params.id;
 
-  db.getProjectprojects(projectId)
+  db.get(projectId)
     .then((projproject) => {
       if (projproject) {
         res.status(200).json({ Success: true, projproject });

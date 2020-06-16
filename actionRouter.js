@@ -5,23 +5,23 @@ const db = require("./data/helpers/actionModel");
 const db2 = require("./data/helpers/projectModel");
 
 actionRouter.get("/", (req, res, next) => {
-    db.get()
-      .then((actions) => {
-        res.status(200).json({ actions });
-      })
-      .catch((err) => {
-        res.status(500).json({ success: false, err });
-      });
-  });
+  db.get()
+    .then((actions) => {
+      res.status(200).json({ actions });
+    })
+    .catch((err) => {
+      res.status(500).json({ success: false, err });
+    });
+});
 
 actionRouter.get("/:id", (req, res) => {
   const { id } = req.params;
   const action = req.body;
 
-  db.get(id)
-    .then((userId) => {
-      if (userId) {
-        res.status(200).json({ action });
+  db.get(id, action)
+    .then((isAction) => {
+      if (isAction) {
+        res.status(200).json({ isAction });
       } else {
         res.status(404).json({ success: false, message: "id invalid" });
       }
