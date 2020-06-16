@@ -18,9 +18,9 @@ projectRouter.get("/:id", (req, res) => {
   const project = req.body;
 
   db.get(id, project)
-    .then((userId) => {
-      if (userId) {
-        res.status(200).json({ userId });
+    .then((isProject) => {
+      if (isProject) {
+        res.status(200).json({ isProject });
       } else {
         res.status(404).json({ success: false, message: "id invalid" });
       }
