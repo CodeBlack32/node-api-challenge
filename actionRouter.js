@@ -5,10 +5,14 @@ const db = require("./data/helpers/actionModel");
 const db2 = require("./data/helpers/projectModel");
 
 actionRouter.get("/", (req, res, next) => {
-  res.send(
-    `<h1>Sprint Node Challenge</h1> <p>Learning Back-End is Interesting</p>`
-  );
-});
+    db.get()
+      .then((actions) => {
+        res.status(200).json({ actions });
+      })
+      .catch((err) => {
+        res.status(500).json({ success: false, err });
+      });
+  });
 
 actionRouter.get("/:id", (req, res) => {
   const { id } = req.params;

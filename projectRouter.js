@@ -4,9 +4,13 @@ const projectRouter = express.Router();
 const db = require("./data/helpers/projectModel");
 
 projectRouter.get("/", (req, res, next) => {
-  res.send(
-    `<h1>Sprint Node Challenge</h1> <p>Learning Back-End is Interesting</p>`
-  );
+  db.get()
+    .then((projects) => {
+      res.status(200).json({ projects });
+    })
+    .catch((err) => {
+      res.status(500).json({ success: false, err });
+    });
 });
 
 projectRouter.get("/:id", (req, res) => {
